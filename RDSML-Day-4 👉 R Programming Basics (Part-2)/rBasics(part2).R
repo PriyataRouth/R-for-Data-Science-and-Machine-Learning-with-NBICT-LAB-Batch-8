@@ -21,10 +21,15 @@ print(x == y)
 print(x != y)
 print(y > x)
 print(y >= x)
+
 # logical operator in R
+
+
 # & logical operator
+
 4 == 4 && 5 == 5
 # || or logical operator
+
 y = 19
 x != y || x == Y
 x =19
@@ -40,6 +45,6 @@ w =( 4 + (3 - 3)) * 2 / 3
 print(w)
 y = 4^4
 print(y)
-11 / 5
-11 %% 5
-11 %/% 5
+11 / 5 # to get residue
+11 %% 5 # modulo operator
+11 %/% 5 # division result without fraction or floating
