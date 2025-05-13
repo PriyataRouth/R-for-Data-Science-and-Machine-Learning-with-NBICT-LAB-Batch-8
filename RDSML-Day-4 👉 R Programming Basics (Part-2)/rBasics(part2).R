@@ -17,18 +17,21 @@ class(a < b)
 print(a < b)
 x = 19
 y = 22-3
-print(x == y)
-print(x != y)
+print(x == y) # called equal to operator
+print(x != y) # not equal to operator
 print(y > x)
 print(y >= x)
 
 # logical operator in R
 
 
-# & logical operator
+# && logical operator 
 
-4 == 4 && 5 == 5
+4 == 4 && 5 == 5 
+# read false if one side or both sides show F
+
 # || or logical operator
+# read T if one or both sides show T
 
 y = 19
 x != y || x == Y
