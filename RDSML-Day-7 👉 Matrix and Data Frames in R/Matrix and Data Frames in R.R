@@ -47,5 +47,5 @@ stu_data = data.frame(studens_names, study_hours, marks, male)
 summary(stu_data)
 
 
-stu_data$study_hours
+stu_data$study_hours # to find a specific row
 mean(stu_data$study_hours)
