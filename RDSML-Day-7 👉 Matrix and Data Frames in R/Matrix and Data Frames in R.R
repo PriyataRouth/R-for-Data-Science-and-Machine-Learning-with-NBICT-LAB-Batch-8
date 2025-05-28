@@ -32,3 +32,20 @@ students_matrix
 
 students_matrix[4, 1] #row 4, column 1
 students_matrix[5, 2]
+summary(students_matrix)
+
+#Data Frames in R
+studens_names = c('mr1', 'mr2', 'ms3', 'ms4', 'mr5')
+study_hours = c(20, 24, 46, 66, 22)
+marks = c(40, 55, 69, 54, 34)
+Gender = c('male', 'male', 'female', 'female', 'male')
+male = c(TRUE, TRUE, FALSE, FALSE, TRUE)
+
+stu_data = data.frame(studens_names, study_hours, marks, Gender)
+summary(stu_data)
+stu_data = data.frame(studens_names, study_hours, marks, male)
+summary(stu_data)
+
+
+stu_data$study_hours
+mean(stu_data$study_hours)
