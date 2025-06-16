@@ -32,4 +32,33 @@ ggplot(dataset, aes(x = wt, y = mpg)) +
 # change the line type & color
 ggplot(dataset, aes(x = wt, y = mpg)) +
   geom_point(size=2, shape=18) + 
-  geom_smooth(method = lm, linetype = "dashed")
+  geom_smooth(method = lm, linetype = "dotted") # for line type
+
+ggplot(dataset, aes(x = wt, y = mpg)) +
+  geom_point(size=2, shape=18) + 
+  geom_smooth(method = lm, linetype = "dashed",
+              color = "darkblue") # change color
+
+# Changing the confidence interval color
+ggplot(dataset, aes(x = wt, y = mpg)) +
+  geom_point(size=2, shape=18, color = "green") + 
+  geom_smooth(method = lm, linetype = "dashed",
+              color = "darkred", fill = "blue")
+
+# Scatter plots with multiple groups
+
+
+# converting the cyl column from a numeric two factor variable
+dataset$cyl = as.factor(dataset$cyl)
+
+# Changing the point shapes by the levels of cyl
+ggplot(dataset, aes(x = wt, y = mpg, shape = cyl)) +
+  geom_point()
+
+# Changing point shapes and colors
+ggplot(dataset, aes(x = wt, y = mpg, shape = cyl, color = cyl)) +
+  geom_point()
+
+# Changing point shapes, colors and sizes
+ggplot(dataset, aes(x = wt, y = mpg, shape = cyl, color = cyl, size = cyl)) +
+  geom_point()
