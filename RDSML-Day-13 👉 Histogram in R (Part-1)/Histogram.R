@@ -1,41 +1,47 @@
-# Importing the data set
+# Importing the dataset
 dataset = read.csv("data.csv")
 
 # Importing the library
-librabry(ggplot2)
+library(ggplot2)
 
 # Basic histogram using ggplot2
-ggplot(dataset, aes(x = weight)) +
+ggplot(dataset, aes(x = weight))+
   geom_histogram()
 
 # Changing the width of bins
-ggplot(dataset, aes(x = weight)) +
-  geom_histogram(binwidth = 5)
+ggplot(dataset, aes(x = weight))+
+  geom_histogram(binwidth = 2)
 
-# to differentiate the pilers
-ggplot(dataset, aes(x = weight)) +
-  geom_histogram(binwidth = 1, color = black)
+# to separate each pillar, change color
+ggplot(dataset, aes(x = weight))+
+  geom_histogram(binwidth = 2, color = "blue")
 
-# Changing fill color
-ggplot(dataset, aes(x = weight)) +
-  geom_histogram(binwidth = 1, color = black, fill = "white")
+#to fill the pillars with different color
+ggplot(dataset, aes(x = weight))+
+  geom_histogram(binwidth = 2, color = "white", fill = "darkblue")
 
-#Adding the mean line54444k33333333n
-myplot = ggplot(dataset, aes(x = weight)) +
-  geom_histogram(color = black, fill = "white")
+#Adding the mean line
+myplot = ggplot(dataset, aes(x = weight))+
+  geom_histogram(color = "white", fill = "darkblue")
 
-myplot # to see what is in my plot
 myplot + geom_vline(aes(xintercept = mean(weight)),
-                    color = blue, linetype = "dashed", size = 1)
+                    color = "blue")
+
+# to change line type & size
+myplot + geom_vline(aes(xintercept = mean(weight)),
+                    color = "yellow", linetype = "dashed", size = 2)
 
 # Histogram with density plot
 ggplot(dataset, aes(x = weight))+
-  geom_histogram(aes(y = after_stat(density)), color = "black", fill = "white")+
-  geom_density(fill = "blue", alpha = .2)
+  geom_histogram(aes(y = after_stat(density)), color = "darkblue", fill = "yellow")+
+  geom_density()
 
-  # Changing line color and fill color
+# if fill the density plot
 ggplot(dataset, aes(x = weight))+
-  geom_histogram(color = "darkblue", fill = "lightblue")
+  geom_histogram(aes(y = after_stat(density)), color = "darkblue", fill = "yellow")+
+  geom_density(fill = "pink", alpha = .7)
 
-
-
+# Changing line color and fill color
+ggplot(dataset, aes(x = weight))+
+  geom_histogram(color = "yellow", fill = "darkblue")
+  
