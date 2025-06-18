@@ -47,7 +47,6 @@ myPlot + scale_color_manual(values = c("red", "blue"))+
   scale_fill_manual(values = c( "#999999", "orange"))
 
 # Using brewer color palettes
-
 myPlot + scale_color_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")
 
