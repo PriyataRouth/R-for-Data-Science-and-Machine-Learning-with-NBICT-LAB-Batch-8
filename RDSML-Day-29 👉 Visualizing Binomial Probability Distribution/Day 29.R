@@ -15,6 +15,7 @@ visualize.binom(stat = 4, size = 10, prob = 0.5, section = 'lower')
 pbinom(q = 4, size = 10, prob = 0.5)
 
 visualize.binom(stat = 4, size = 10, prob = 0.5, section = 'upper')
+
 #to get more than 4 & more  than 6
 visualize.binom(stat = c(4,6), size = 10, prob = 0.5, section = 'bounded')
 
