@@ -24,3 +24,11 @@ boxplot(weight ~ group,
         ylab = "Dried weight of plants", 
         col = "lightgray"
         )
+
+ install.packages("ggpubr")
+library(ggpubr) 
+ggline(plantGrowth,
+       x = "group"
+       y = "weight")
+       add = c("mean_se", "jitter"
+               )
