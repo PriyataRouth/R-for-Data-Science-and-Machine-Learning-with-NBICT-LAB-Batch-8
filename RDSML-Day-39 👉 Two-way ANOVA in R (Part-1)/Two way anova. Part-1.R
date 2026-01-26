@@ -5,6 +5,7 @@ library(tidyverse)
 # Importing the dataset
 d <- read.csv("cropdata.csv")
 
+
 # Quick Exploratory Descriptive Analysis
 summs <- d %>%
    group_by(fert, irr) %>%
