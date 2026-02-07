@@ -1,6 +1,9 @@
 # Multiple Linear Regression
 
 # Importing the dataset
+# Multiple Linear Regression
+
+# Importing the dataset
 dataset <- read.csv("50_Startups.csv")
 
 # Encoding the categorical data
@@ -21,49 +24,47 @@ regressor <- lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend 
 summary(regressor)
 
 # Predicting the test set results
-y_pred = predict(regressor, test_set)
+y_pred <- predict(regressor, test_set)
 y_pred
 
-# Backward Elimination
-regressor1 <- lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State, 
-                 data = training_set)
-summary(regressor1)
+# Stepwise backward elimination
+regressor <- lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend, 
+                data = training_set)
+summary(regressor)
 
-regressor2 <- lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend, 
-                 data = training_set)
-summary(regressor2)
+regressor <- lm(formula = Profit ~ R.D.Spend + Marketing.Spend, 
+                data = training_set)
+summary(regressor)
 
-regressor3 <- lm(formula = Profit ~ R.D.Spend + Marketing.Spend, 
-                 data = training_set)
-summary(regressor3)
+# Automated Stepwise Backward Elimination
+full_model <- lm(Profit ~ ., data = training_set)
+summary(full_model)
 
-# Full model
-full_model <- lm(Profit ~ ., data = dataset)
-
-# Automated Stepwise backward elimination
 final_model <- step(full_model, direction = "backward")
 summary(final_model)
 
-# Checking the linearity assumption
+cor(training_set$R.D.Spend, training_set$Profit, method = 'pearson')
+cor.test(training_set$R.D.Spend, training_set$Profit, method = 'pearson')
+cor.test(training_set$Marketing.Spend, training_set$Profit, method = 'pearson')
+plot(training_set$R.D.Spend, training_set$Profit)
+
 plot(final_model)
 
-# checking for the independence of errors assumption
+# Checking for the independence of errors
 # install.packages("lmtest")
 library(lmtest)
 dwtest(final_model)
 
-# Homoscedasticity (Equal Variance)
-plot(final_model$fitted.values, rstandard(final_model))
-abline(h = 0, col = "red")
-bptest(final_model)
-
-# Normality of Residuals
+# Normality of residuals
+shapiro.test(rstandard(final_model))
 qqnorm(rstandard(final_model))
 qqline(rstandard(final_model))
 
-shapiro.test(rstandard(final_model))
-
-# No Multicollinearity
-# install.packages("car")
+# Checking multicollinearity
 library(car)
 vif(final_model)
+
+# Homoscedasticity assumption
+plot(final_model$fitted.values, rstandard(final_model))
+abline(h=0, col="red")
+bptest(final_model)
