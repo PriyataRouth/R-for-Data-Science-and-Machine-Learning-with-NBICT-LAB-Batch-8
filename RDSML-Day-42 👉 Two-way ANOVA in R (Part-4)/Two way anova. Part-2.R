@@ -50,6 +50,7 @@ contrast(emmeans(m, ~ irr | fert), method = "pairwise", adjust = "tukey")
 contrast(emmeans(m, ~fert), method = "tukey")
 contrast(emmeans(m, ~irr), method = "tukey")
 
+
 # CLD letters
 library(multcomp)
 # install.packages("multcompView")
