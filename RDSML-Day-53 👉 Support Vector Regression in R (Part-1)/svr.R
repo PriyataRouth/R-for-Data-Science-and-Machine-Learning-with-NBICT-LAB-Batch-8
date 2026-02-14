@@ -65,6 +65,7 @@ lm_pred <- predict(lm_model, newdata = test_scaled)
 # Evaluation metrics for linear regression
 
 # Calculating root mean squared error
+
 rmse <- function(actual, pred) sqrt(mean((actual-pred)^2))
 lm_rmse <- rmse(test_scaled$cnt, lm_pred)
 lm_rmse
